@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.cache/
+.idea/
+.env
+config_private.py
+OAI_CONFIG_LIST
+gpt_log/
+private_upload/
+flagged/
+*.log

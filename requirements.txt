@@ -1,0 +1,11 @@
+gradio>=3.32,<4
+openai>=1.0
+pyautogen
+requests
+numpy
+scipy
+matplotlib
+tiktoken
+markdown
+pymdown-extensions
+latex2mathml

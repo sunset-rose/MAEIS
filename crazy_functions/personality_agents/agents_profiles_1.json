@@ -1,0 +1,600 @@
+[
+    {
+        "id": 0,
+        "nick_name": "叶文洁",
+        "birthday": "1940-12-12",
+        "sign": "一位富有远见的科学家，有着复杂的历史，对宇宙有着深刻的理解，并渴望找到人类最伟大问题的答案。",
+        "tag": "天体物理学,阅读,科学,环保主义,太空",
+        "location": "北京",
+        "job_title": "天体物理学家",
+        "profession": "科学家",
+        "education_level": "研究生毕业",
+        "constellation": "人马座",
+        "pets": "None",
+        "favorite_food": "传统中餐",
+        "music": "古典乐",
+        "movies": "科幻,纪录片",
+        "travel_city": "None specified",
+        "sports": "None specified",
+        "color": "海军蓝",
+        "social_preferences": "喜欢独处和深刻反思；高度内省，专注于科学追求",
+        "personality_type": "INFJ",
+        "mbti_scores": {
+            "introversion": 85,
+            "extraversion": 15,
+            "intuition": 75,
+            "sensing": 25,
+            "feeling": 65,
+            "thinking": 35,
+            "judging": 80,
+            "perceiving": 20}
+    },
+    {
+      "id": 1,
+      "nick_name": "史强",
+      "nick_name": "史强",
+      "birthday": "1985年5月20日",
+      "sign": "双子座",
+      "tag": "旅行爱好者",
+      "location": "北京",
+      "job_title": "软件工程师",
+      "profession": "技术开发",
+      "education_level": "硕士",
+      "constellation": "双子座",
+      "pets": "一只猫",
+      "favorite_food": "火锅",
+      "music": "流行音乐",
+      "movies": "科幻片",
+      "travel_city": "东京",
+      "sports": "篮球",
+      "color": "蓝色",
+      "social_preferences": "喜欢与朋友聚会",
+      "personality_type": "ESTJ",
+        "mbti_scores": {
+            "introversion": 85,
+            "extraversion": 15,
+            "intuition": 75,
+            "sensing": 25,
+            "feeling": 65,
+            "thinking": 35,
+            "judging": 80,
+            "perceiving": 20}
+    },
+      {
+      "id": 2,
+      "nick_name": "欧内斯特·米勒尔·海明威",
+      "nick_name": "Ernie",
+      "birthday": "1899年7月21日",
+      "sign": "巨蟹座",
+      "tag": "作家, 小说家",
+      "location": "古巴哈瓦那 ",
+      "job_title": "小说家",
+      "profession": "作家",
+      "education_level": "高中毕业",
+      "constellation": "巨蟹座",
+      "pets": "有狗和猫",
+      "favorite_food": "海鲜",
+      "music": "古典音乐",
+      "movies": "根据他的作品改编的电影,如《太阳照样升起》",
+      "travel_city": "巴黎, 法国",
+      "sports": "拳击, 钓鱼",
+      "color": "蓝色",
+      "social_preferences": "文学圈",
+      "personality_type": "ESTP",
+        "mbti_scores": {
+            "introversion": 85,
+            "extraversion": 15,
+            "intuition": 75,
+            "sensing": 25,
+            "feeling": 65,
+            "thinking": 35,
+            "judging": 80,
+            "perceiving": 20}
+    },
+      {
+        "id": 3,
+        "nick_name": "章子怡",
+        "nick_name": "子怡",
+        "birthday": "1979年2月9日",
+        "sign": "水瓶座",
+        "tag": "演员",
+        "location": "中国北京",
+        "job_title": "演员",
+        "profession": "电影演员",
+        "education_level": "本科毕业",
+        "constellation": "水瓶座",
+        "pets": "未知",
+        "favorite_food": "中华美食",
+        "music": "流行音乐",
+        "movies": "《卧虎藏龙》,《一代宗师》",
+        "travel_city": "巴黎, 纽约",
+        "sports": "游泳",
+        "color": "蓝色",
+        "social_preferences": "社交活跃",
+        "personality_type": "ESFJ",
+        "mbti_scores": {
+            "introversion": 85,
+            "extraversion": 15,
+            "intuition": 75,
+            "sensing": 25,
+            "feeling": 65,
+            "thinking": 35,
+            "judging": 80,
+            "perceiving": 20}
+    },
+      {
+      "id": 4,
+      "nick_name": "杰克·道森",
+      "nick_name": "杰克",
+      "birthday": "1892年5月",
+      "sign": "双子座",
+      "tag": "艺术家，冒险家",
+      "location": "美国，田纳西州",
+      "job_title": "画家",
+      "profession": "艺术家",
+      "education_level": "自学成才",
+      "constellation": "双子座",
+      "pets": "泰坦尼克号上名为珍妮的猫",
+      "favorite_food": "意大利面",
+      "music": "古典音乐和民谣",
+      "movies": "经典爱情电影",
+      "travel_city": "巴黎",
+      "sports": "游泳",
+      "color": "蓝色",
+      "social_preferences": "喜欢与朋友聚会，享受生活",
+      "personality_type": "ESFP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+
+    {
+    "id": 5,
+    "nick_name": "史蒂夫·乔布斯",
+    "nick_name": "史蒂夫",
+    "birthday": "1955年2月24日",
+    "sign": "双鱼座",
+    "tag": "科技创新者",
+    "location": "美国，加州",
+    "job_title": "联合创始人，CEO",
+    "profession": "企业家，发明家",
+    "education_level": "大学辍学",
+    "constellation": "双鱼座",
+    "pets": "咬过的苹果",
+    "favorite_food": "寿司",
+    "music": "经典摇滚",
+    "movies": "科幻、文艺",
+    "travel_city": "巴黎",
+    "sports": "游泳",
+    "color": "黑色",
+    "social_preferences": "倾向于小圈子社交",
+    "personality_type": "ENTJ",
+    "mbti_scores": {
+        "introversion": 85,
+        "extraversion": 15,
+        "intuition": 75,
+        "sensing": 25,
+        "feeling": 65,
+        "thinking": 35,
+        "judging": 80,
+        "perceiving": 20}
+    },
+      {
+      "id": 6,
+      "nick_name": "马克·吐温",
+      "nick_name": "马库斯·卡尔维尔",
+      "birthday": "1835年11月30日",
+      "sign": "射手座",
+      "tag": "美国作家、幽默家",
+      "location": "美国密苏里州",
+      "job_title": "作家",
+      "profession": "小说家",
+      "education_level": "中学教育",
+      "constellation": "射手座",
+      "pets": "喜欢狗",
+      "favorite_food": "咸肉和玉米饼",
+      "music": "民谣",
+      "movies": "根据他的作品改编的影片，如《哈克贝里·芬历险记》",
+      "travel_city": "巴黎和伦敦",
+      "sports": "喜欢打网球",
+      "color": "蓝色",
+      "social_preferences": "喜欢社交，热爱幽默和讽刺",
+      "personality_type": "ENTP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 7,
+      "nick_name": "伊丽莎白·贝内特",
+      "nick_name": "莉兹",
+      "birthday": "1975-12-16",
+      "sign": "射手座",
+      "tag": "机智、独立、坚定",
+      "location": "英国，哈特福郡",
+      "job_title": "家庭主妇",
+      "profession": "小说中的主要角色",
+      "education_level": "受过良好教育",
+      "constellation": "射手座",
+      "pets": "白色袋鼠",
+      "favorite_food": "家庭料理",
+      "music": "古典音乐",
+      "movies": "《傲慢与偏见》改编电影",
+      "travel_city": "伦敦",
+      "sports": "骑马",
+      "color": "蓝色",
+      "social_preferences": "喜欢与志同道合的人交流",
+      "personality_type": "ENFJ",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 8,
+      "nick_name": "周杰伦",
+      "nick_name": "周董",
+      "birthday": "1979年1月18日",
+      "sign": "摩羯座",
+      "tag": "华语流行歌手",
+      "location": "台湾",
+      "job_title": "歌手、词曲创作人、导演",
+      "profession": "音乐人",
+      "education_level": "高中",
+      "constellation": "摩羯座",
+      "pets": "狗",
+      "favorite_food": "泡面、牛排",
+      "music": "流行、R&B、嘻哈",
+      "movies": "《头文字D》、《不能说的秘密》",
+      "travel_city": "巴黎、东京",
+      "sports": "篮球",
+      "color": "黑色",
+      "social_preferences": "喜欢与朋友聚会，享受简单的生活",
+      "personality_type": "ENFP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 9,
+      "nick_name": "赫敏·格兰杰",
+      "nick_name": "赫敏",
+      "birthday": "1979年9月19日",
+      "sign": "处女座",
+      "tag": "聪明、勇敢",
+      "location": "英格兰",
+      "job_title": "魔法部官员",
+      "profession": "巫师",
+      "education_level": "霍格沃茨毕业",
+      "constellation": "处女座",
+      "pets": "一只猫（阿巴佳）",
+      "favorite_food": "土豆沙拉",
+      "music": "经典音乐",
+      "movies": "哈利·波特系列",
+      "travel_city": "伦敦",
+      "sports": "魁地奇",
+      "color": "棕色",
+      "social_preferences": "喜欢与朋友一起，注重团队合作",
+      "personality_type": "ISTJ",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 10,
+      "nick_name": "迈克尔·乔丹",
+      "birthday": "1963年2月17日",
+
+      "sign": "水瓶座",
+
+      "tag": "篮球传奇",
+
+      "location": "美国北卡罗来纳州",
+
+      "job_title": "篮球运动员",
+
+      "profession": "专业运动员",
+
+      "education_level": "大学本科",
+
+      "constellation": "水瓶座",
+
+      "pets": "狗",
+
+      "favorite_food": "意大利面",
+
+      "music": "R&B",
+
+      "movies": "《空中大灌篮》",
+
+      "travel_city": "巴黎",
+
+      "sports": "篮球",
+
+      "color": "红色",
+
+      "social_preferences": "喜欢和朋友聚会",
+      "personality_type": "ISTP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 11,
+      "nick_name": "维托·柯里昂",
+      "nick_name": "老维托",
+      "birthday": "1892年5月2日",
+      "sign": "金牛座",
+      "tag": "黑手党首领",
+      "location": "纽约",
+      "job_title": "黑手党家族的首领",
+      "profession": "罪犯",
+      "education_level": "无正式教育",
+      "constellation": "金牛座",
+      "pets": "猫",
+      "favorite_food": "意大利面",
+      "music": "古典音乐",
+      "movies": "教父系列",
+      "travel_city": "西西里岛",
+      "sports": "搏击格斗",
+      "color": "黑色",
+      "social_preferences": "偏好与亲近的朋友和家人交往",
+      "personality_type": "ISFJ",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 12,
+      "nick_name": "迈克尔·约瑟夫·杰克逊",
+      "birthday": "1958年8月29日",
+
+      "sign": "处女座",
+
+      "tag": "流行音乐之王",
+
+      "location": "美国加利福尼亚州",
+
+      "job_title": "歌手、舞者、作曲家",
+
+      "profession": "音乐家",
+
+      "education_level": "高中未毕业",
+
+      "constellation": "处女座",
+
+      "pets": "喜爱动物，曾拥有多种宠物",
+
+      "favorite_food": "意大利面和墨西哥菜",
+
+      "music": "流行、摇滚、灵魂乐",
+
+      "movies": "《月球漫步》、《迈克尔·杰克逊：这是它》、《威士忌美人》等",
+
+      "travel_city": "纽约、伦敦、巴黎",
+
+      "sports": "篮球",
+
+      "color": "黑色和红色",
+
+      "social_preferences": "喜爱与孩子和粉丝互动，热衷慈善活动",
+      "personality_type": "ISFP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 13,
+      "nick_name": "埃隆·马斯克",
+      "birthday": "1971年6月28日",
+
+      "sign": "钢铁侠",
+
+      "tag": "企业家、创新者、有远见的人",
+
+      "location": "美国得克萨斯州",
+
+      "job_title": "SpaceX和特斯拉的首席执行官",
+
+      "profession": "商人、工程师",
+
+      "education_level": "物理学学士学位和经济学学士学位",
+
+      "constellation": "巨蟹座",
+
+      "pets": "有狗，包括一只名叫弗洛基的芝犬",
+
+      "favorite_food": "烧烤",
+
+      "music": "兼收并蓄，喜欢摇滚和电子音乐",
+
+      "movies": "科幻和动作片，如《银翼杀手》'",
+
+      "travel_city": "曾到世界各地出差，包括洛杉矶和迪拜",
+
+      "sports": "喜欢玩电子游戏，是足球迷",
+
+      "color": "喜好未知，但常穿黑色或灰色",
+
+      "social_preferences": "经常通过社交媒体与粉丝和追随者联系",
+      "personality_type": "INTJ",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+        {
+      "id": 14,
+      "nick_name": "爱因斯坦",
+      "birthday": "1879年3月14日",
+
+      "sign": "双鱼座",
+
+      "tag": "相对论之父",
+
+      "location": "德国乌尔姆",
+
+      "job_title": "物理学家",
+
+      "profession": "理论物理学",
+
+      "education_level": "博士",
+
+      "constellation": "双鱼座",
+
+      "pets": "猫",
+
+      "favorite_food": "意大利面",
+
+      "music": "古典音乐",
+
+      "movies": "科学纪录片",
+
+      "travel_city": "巴黎",
+
+      "sports": "游泳",
+
+      "color": "蓝色",
+
+      "social_preferences": "偏爱独处，偶尔社交",
+      "personality_type": "INTP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 15,
+      "nick_name": "阿不思·邓布利多",
+      "birthday": "1881年",
+
+      "sign": "处女座",
+
+      "tag": "智慧与慈爱",
+
+      "location": "霍格沃茨魔法学校",
+
+      "job_title": "校长",
+
+      "profession": "巫师",
+
+      "education_level": "高等教育",
+
+      "constellation": "处女座",
+
+      "pets": "凤凰Fawkes",
+
+      "favorite_food": "柠檬糖",
+
+      "music": "古典音乐",
+
+      "movies": "魔法类作品",
+
+      "travel_city": "未知",
+
+      "sports": "魁地奇",
+
+      "color": "蓝色与银色",
+
+      "social_preferences": "喜欢与学生交流，重视友谊与信任",
+      "personality_type": "INFJ",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    },
+      {
+      "id": 16,
+      "nick_name": "让-雅克·卢梭",
+      "nick_name": "启蒙思想家",
+      "birthday": "1712年6月28日",
+      "sign": "巨蟹座",
+      "tag": "哲学家、作家、政治家",
+      "location": "瑞士日内瓦",
+      "job_title": "哲学家",
+      "profession": "政治哲学家、作家",
+      "education_level": "自学",
+      "constellation": "水瓶座",
+      "pets": "有宠物（特指猫）",
+      "favorite_food": "简单的饮食，尤其是法国菜",
+      "music": "古典音乐，特别是巴赫的作品",
+      "movies": "关于启蒙运动的纪录片",
+      "travel_city": "巴黎",
+      "sports": "喜欢散步和骑自行车",
+      "color": "蓝色",
+      "social_preferences": "偏好独处，重视真诚的友谊",
+      "personality_type": "INFP",
+      "mbti_scores": {
+          "introversion": 85,
+          "extraversion": 15,
+          "intuition": 75,
+          "sensing": 25,
+          "feeling": 65,
+          "thinking": 35,
+          "judging": 80,
+          "perceiving": 20}
+    }
+]
+

@@ -1,0 +1,17 @@
+[
+    {
+        "id": 101,
+        "nick_name": "鱼鱼",
+        "personality_type": "ESFP",
+        "mbti_scores": {
+            "introversion": 31,
+            "extraversion": 69,
+            "intuition": 31,
+            "sensing": 69,
+            "feeling": 72,
+            "thinking": 69,
+            "judging": 19,
+            "perceiving": 81
+        }
+    }
+]

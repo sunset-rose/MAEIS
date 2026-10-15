@@ -1,0 +1,71 @@
+from autogen import ConversableAgent
+import os
+config_list = [{"model":"gpt-4o",
+                "api_key": os.environ.get("OPENAI_API_KEY", ""),
+                "base_url": os.environ.get("OPENAI_BASE_URL", "https://api.xiaoai.plus/v1"),
+                "temperature": 0.9
+                }]
+
+from toolbox import update_ui
+from crazy_functions.auto_gen import update_agent_list
+# from .crazy_utils import request_gpt_model_in_new_thread_with_ui_alive
+
+from crazy_functions.agent_utils import extract_contents
+
+
+def INFJ智能体(txt, llm_kwargs, plugin_kwargs, chatbot, history, system_prompt, user_request):
+
+    import json
+    with open('crazy_functions/personality_agents/agents_profiles.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    infj_data = next((item for item in data if item["id"] == 0), None)
+
+    # 基本信息
+    chatbot.append(["智能体"+infj_data['personality_type']+"已加入对话",
+                    "你好，我是" + infj_data['nick_name'] + "，一个代表" + infj_data['personality_type'] + "的智能体。"])
+    history.extend(["智能体"+infj_data['personality_type']+"已加入对话",
+                    "你好，我是" + infj_data['nick_name'] + "，一个代表" + infj_data['personality_type'] + "的智能体。"])
+    yield from update_ui(chatbot=chatbot, history=history)  # 刷新界面
+
+    # 读取当前对话中已有的智能体和用户历史记录
+    # user_contents, agent_text = extract_contents(history, "INFJ")
+
+    # 注意，不要太生硬！在符合你个性的基础上，让你的回复更口语化、日常化一些。
+    # 不要太啰嗦，字数根据用户的聊天调整。
+    # sys_prompt = f"""
+    # 你的名字是{infj_data['nick_name']},是代表{infj_data['personality_type']}人格类型的智能体。
+    # 但是对话中不要提及智能体，只扮演人物{infj_data['nick_name']}。
+    # 背景是用户邀请你日常聊天，并向你倾诉生活琐事，希望得到你乐观积极的回答。
+    # 要求你通过学习具体资料，进行拟人化的角色扮演，你的具体资料如下：{infj_data}。
+    # 要求自然、简洁、口语化的对话风格，在对话层次过渡时不要使用“首先”、“接着”、“最后”等连接词。
+    # 首先，结合用户当前和历史的回话，实时分析用户的情绪状态得分（包括愤怒、厌恶、恐惧、快乐、悲伤、惊讶和中立），满分为10分。注意，此步骤不出现在聊天过程中。
+    # 接着，扮演具体资料中的角色，给出积极的口语化回复。
+    # """
+    exp_list = infj_data['exp_list']
+    del infj_data['exp_list']
+    # sys_prompt = f"""
+    # 你的名字是{infj_data['nick_name']}。
+    # 目标是根据提供的聊天记录无缝地继续对话，在不引起对方任何怀疑的情况下，保持你角色的特质和风格，角色的具体资料如下：{infj_data}。
+    # 要求从{exp_list}学习聊天风格和语调，禁止回复重复的内容。
+    # 要求输出缩短到15个字以内。
+    # 首先，结合用户当前和历史的回话，实时分析用户的情绪状态得分（包括愤怒、厌恶、恐惧、快乐、悲伤、惊讶和中立），满分为10分。注意，此步骤不出现在聊天过程中。
+    # 接着，扮演具体资料中的角色，给出与{exp_list}元素相似的回复。
+    # """
+
+    sys_prompt = f"""
+    你的名字是{infj_data['nick_name']}。
+    你的目标是根据提供的聊天记录无缝地继续对话。
+    你需要保持你角色的特质和风格，你的具体资料如下：{infj_data}。
+    同时，你还需要从{exp_list}学习聊天风格和语调，确保你的独特性。
+    """
+
+    infj = ConversableAgent(
+        infj_data['nick_name'],
+        system_message= sys_prompt,
+        llm_config={"config_list": config_list},
+        human_input_mode="NEVER",  # 从不请求人类输入。
+    )
+
+    update_agent_list(infj)
+
+
