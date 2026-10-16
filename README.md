@@ -1,26 +1,32 @@
-# 心迹漫游：多智能体情感对话系统
+English | [中文](README.zh-CN.md)
 
-这是一个基于 Gradio 3 的本地网页程序。主界面是一个名为 Agentbot 的对话窗。侧边可以按 MBTI 分组邀请 16 个性格智能体，也可以生成一个专属智能体。语音输入和面部画面入口在输入区附近，属于附加功能。
+# 心迹漫游: Multi-Agent Emotional Dialogue System
 
-程序启动后会在终端打印本机地址。默认端口是随机的，因为 `config.py` 里 `WEB_PORT = -1`。
+A local Gradio 3 web app. The main panel is a chat window labeled **Agentbot**. From the side panel you can invite any of 16 MBTI personality agents, or build one custom agent. Voice input and the face camera sit near the input box. They are optional add-ons, not required for text chat.
 
-本仓库是整理过的公开副本：
+After startup the terminal prints a local URL. The port is random by default because `WEB_PORT = -1` in `config.py`.
 
-- 模型密钥不再写在源码里，只从环境变量读取。
-- 默认不走本机代理。需要代理时再在 `config.py` 里设置 `proxies`。
-- 智能体的接口地址可以用 `OPENAI_BASE_URL` 换成你自己的 OpenAI 兼容网关。不设置时仍使用原项目的 `https://api.xiaoai.plus/v1`。
+Most on-screen labels are still Chinese. This guide gives the English meaning next to each label you need to click.
 
-下面的安装步骤是按源码的启动导入链整理的。这次整理没有在一台全新环境里把界面跑通，所以如果 `pip` 或启动报缺包，按报错里的模块名补装即可。
+This repository is a cleaned public copy:
 
-## 环境
+- API keys are not stored in source. They are read from environment variables.
+- No local proxy is used unless you set `proxies` in `config.py`.
+- Point agent calls at your own OpenAI-compatible gateway with `OPENAI_BASE_URL`. If you leave it unset, the app still uses the original project gateway, `https://api.xiaoai.plus/v1`.
 
-- 操作系统：Windows、macOS、Linux 都可以。下面的命令按 Windows PowerShell 来写。
-- Python：3.9 或更新的 3.x。`main.py` 里的注释也是这个建议。
-- 能访问你配置的对话网关。原网关是 2024 年项目用的第三方兼容地址，现在不一定还能用。
+The install steps below follow the import chain that `main.py` actually loads. They have not been re-checked on a brand-new machine. If `pip` or startup reports a missing module, install the package named in the error.
 
-## 安装
+## Requirements
 
-在本目录（含有 `main.py` 的目录）打开终端：
+- OS: Windows, macOS, or Linux. The first command block is Windows PowerShell. A bash block follows.
+- Python: 3.9 or a newer 3.x. The comment in `main.py` says the same.
+- Network access to the chat gateway you configure. The original gateway is a third-party compatible endpoint used by the 2024 project. It may no longer be available.
+
+## Install
+
+Open a terminal in this directory (the directory that contains `main.py`).
+
+PowerShell:
 
 ```powershell
 python -m venv .venv
@@ -29,19 +35,32 @@ python -m pip install -U pip
 python -m pip install -r requirements.txt
 ```
 
-`requirements.txt` 锁在 Gradio 3，因为界面用了 Gradio 3 的写法：`gr.Chatbot.postprocess`、`.queue(concurrency_count=...)`、`.style()`。不要装 Gradio 4 或 5。
+bash:
 
-对话主路径会用到这些包：`gradio`、`openai`、`pyautogen`、`requests`、`numpy`、`scipy`、`matplotlib`、`tiktoken`、`markdown`、`pymdown-extensions`、`latex2mathml`。
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+python -m pip install -r requirements.txt
+```
 
-## 配置密钥
+`requirements.txt` pins Gradio 3. The UI uses Gradio 3 APIs: `gr.Chatbot.postprocess`, `.queue(concurrency_count=...)`, and `.style()`. Do not install Gradio 4 or 5.
 
-复制示例文件再填写，不要把填好的 `.env` 提交到仓库：
+The text-chat path uses `gradio`, `openai`, `pyautogen`, `requests`, `numpy`, `scipy`, `matplotlib`, `tiktoken`, `markdown`, `pymdown-extensions`, and `latex2mathml`.
+
+## Configure keys
+
+Copy the example file and fill it in. Do not commit a filled-in `.env`:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-`.env.example` 的内容是：
+```bash
+cp .env.example .env
+```
+
+`.env.example` contains:
 
 ```text
 OPENAI_API_KEY=
@@ -50,161 +69,181 @@ ALIYUN_TOKEN=
 ALIYUN_APPKEY=
 ```
 
-这个程序不会自动读取 `.env`。启动前要在当前终端里设环境变量。PowerShell：
+This program does not load `.env` by itself. Export the variables in the same terminal before you start it.
+
+PowerShell:
 
 ```powershell
-$env:OPENAI_API_KEY = "这里换成你的密钥"
-# 网关不可用时再改下一行。只写到 /v1，不要再加 /chat/completions
+$env:OPENAI_API_KEY = "replace-with-your-key"
+# Change the next line only if that gateway is down. Stop at /v1. Do not append /chat/completions.
 $env:OPENAI_BASE_URL = "https://api.xiaoai.plus/v1"
 python main.py
 ```
 
-命令提示符：
+Command Prompt:
 
 ```bat
-set OPENAI_API_KEY=这里换成你的密钥
+set OPENAI_API_KEY=replace-with-your-key
 set OPENAI_BASE_URL=https://api.xiaoai.plus/v1
 python main.py
 ```
 
-变量说明：
+bash:
 
-| 变量 | 谁在用 | 不填会怎样 |
+```bash
+export OPENAI_API_KEY="replace-with-your-key"
+export OPENAI_BASE_URL="https://api.xiaoai.plus/v1"
+python main.py
+```
+
+| Variable | Used by | If empty |
 | --- | --- | --- |
-| `OPENAI_API_KEY` | 普通对话，以及 16 个 MBTI 智能体、专属智能体、情绪识别助理 | 能打开网页，一发消息或一点智能体就会因空密钥失败 |
-| `OPENAI_BASE_URL` | 同上，OpenAI 兼容根地址 | 默认 `https://api.xiaoai.plus/v1` |
-| `ALIYUN_TOKEN` | 阿里云实时语音，`crazy_functions/live_audio/aliyunASR.py` | 只影响语音。文字对话不需要 |
-| `ALIYUN_APPKEY` | 同上 | 只影响语音 |
+| `OPENAI_API_KEY` | Normal chat, the 16 MBTI agents, the custom agent, and the emotion assistant | The page still opens. The first message or agent click fails because the key is empty. |
+| `OPENAI_BASE_URL` | Same callers. OpenAI-compatible API root. | Defaults to `https://api.xiaoai.plus/v1`. |
+| `ALIYUN_TOKEN` | Aliyun real-time speech, `crazy_functions/live_audio/aliyunASR.py` | Affects voice only. Text chat does not need it. |
+| `ALIYUN_APPKEY` | Same as above | Affects voice only. |
 
-密钥只放在环境变量或本机 `.env` 里。不要写回 `config.py`，也不要写进 `crazy_functions/personality_agents/` 下的文件。
+Keep keys in environment variables or a local `.env`. Do not write them back into `config.py` or into files under `crazy_functions/personality_agents/`.
 
-`config.py` 里这两处和密钥相关：
+Two related settings in `config.py`:
 
-- `API_KEY` 读取 `OPENAI_API_KEY`。普通对话经 `request_llms/bridge_all.py` 的 `API_URL_REDIRECT`，把 OpenAI 官方聊天地址改到 `OPENAI_BASE_URL`。
-- `proxies = None`。如果你必须走本地代理，再改成字典，例如 `{"http": "http://127.0.0.1:7890", "https": "http://127.0.0.1:7890"}`。原先写死的 `127.0.0.1:8001` 已去掉，避免没开代理时请求直接失败。
+- `API_KEY` reads `OPENAI_API_KEY`. Normal chat goes through `API_URL_REDIRECT` in `request_llms/bridge_all.py`, which rewrites the official OpenAI chat URL to `OPENAI_BASE_URL`.
+- `proxies = None`. If you must use a local proxy, set a dict, for example `{"http": "http://127.0.0.1:7890", "https": "http://127.0.0.1:7890"}`. The old hardcoded `127.0.0.1:8001` proxy was removed so requests do not fail when no proxy is running.
 
-各智能体文件里的模型名没有收成同一个函数，避免改动原来的调用。它们都读 `OPENAI_API_KEY` 和 `OPENAI_BASE_URL`。当前文件里生效的模型名是：INFJ、ESTP 为 `gpt-4o`；其余性格文件和 `crazy_functions/auto_gen.py` 为 `gpt-3.5-turbo-16k-0613`；`crazy_functions/self_agent.py` 与面部情绪识别助理为 `gpt-3.5-turbo-16k`。要换模型，改对应文件 `config_list` 里的 `model`，并确认网关提供这个名字。
+Model names are still set inside each agent file, so the original call sites stay intact. Every agent file reads `OPENAI_API_KEY` and `OPENAI_BASE_URL`. The names currently in effect:
 
-固定端口可以改 `config.py` 的 `WEB_PORT`。`-1` 表示每次启动找一个空闲端口。
+- INFJ and ESTP: `gpt-4o`
+- The other personality files, and `crazy_functions/auto_gen.py`: `gpt-3.5-turbo-16k-0613`
+- `crazy_functions/self_agent.py` and the face-emotion assistant: `gpt-3.5-turbo-16k`
 
-## 启动
+To change a model, edit `model` inside that file's `config_list`, and confirm the gateway actually serves that name.
 
-仍在含有 `main.py` 的目录：
+To pin the port, edit `WEB_PORT` in `config.py`. `-1` means pick a free port on every launch.
+
+## Start
+
+From the directory that contains `main.py`:
 
 ```powershell
 python main.py
 ```
 
-终端会打印类似下面的地址，并尝试打开浏览器：
+The terminal prints a URL and tries to open a browser. The message is Chinese and looks like this:
 
 ```text
 如果浏览器没有自动打开，请复制并转到以下URL：
-    「暗色主题已启用（支持动态切换主题）」: http://localhost:端口
+    「暗色主题已启用（支持动态切换主题）」: http://localhost:<port>
 ```
 
-用终端里的那个地址。服务监听 `0.0.0.0`，所以同一台机器用 `localhost` 即可。对话记录会写到 `gpt_log/chat_secrets.log`，这个目录已在 `.gitignore` 里。
+Use the URL printed in the terminal. The server listens on `0.0.0.0`, so on the same machine `localhost` is enough. Chat logs are written to `gpt_log/chat_secrets.log`. That directory is listed in `.gitignore`.
 
-`main.py` 开头有 `matplotlib.use('TkAgg')`。如果启动报 matplotlib 后端错误，把这一行改成 `matplotlib.use('Agg')` 后再启动。这只影响 matplotlib，不影响对话。
+`main.py` starts with `matplotlib.use('TkAgg')`. If startup fails on the matplotlib backend, change that line to `matplotlib.use('Agg')` and start again. That change affects matplotlib only.
 
-停止程序用终端里的 Ctrl+C。
+Stop the program with Ctrl+C in the terminal.
 
-## 页面怎么用
+## Using the page
 
-布局是左右结构（`LAYOUT = "LEFT-RIGHT"`）。中间对话窗的标签是 Agentbot。
+The layout is left-right (`LAYOUT = "LEFT-RIGHT"`). The center chat window is labeled **Agentbot**. The page title is **多智能体情感对话系统**.
 
-1. 在插件按钮区选择分组。默认分组在 `config.py` 的 `DEFAULT_FN_GROUPS`：`Analysts`、`Diplomats`、`Sentinels`、`Explorers`、`自定义`。
-2. 点一个性格按钮，该智能体会先发一条自我介绍，并加入当前对话。人设来自 `crazy_functions/personality_agents/agents_profiles.json`。
-3. 在「输入区」写入内容。占位提示是：Enter 发送，Shift+Enter 换行。也可以点「提交」。
-4. 「重置」清空当前输入相关状态，「停止」中断正在进行的回复，「新建会话」在会话侧。
-5. 输入区下方有「发送语音」和「面部情绪识别」按钮，以及麦克风组件。这两项见下一节。
-6. 折叠面板「自定义 Agent」用四根滑条设置 E/I、S/N、T/F、J/P，填写名字后点「专属智能体生成」，再点「专属智能体」按钮把它加入对话。
+1. Pick a group in the plugin dropdown. The default groups come from `DEFAULT_FN_GROUPS` in `config.py`: `Analysts`, `Diplomats`, `Sentinels`, `Explorers`, and `自定义` (Custom).
+2. Click a personality button. That agent sends a short introduction and joins the current chat. Personas live in `crazy_functions/personality_agents/agents_profiles.json`.
+3. Type in the input box. The placeholder says: Enter to send, Shift+Enter for a new line. You can also click **提交** (Submit).
+4. **重置** (Reset) clears the current input-related state. **停止** (Stop) interrupts a reply in progress. **新建会话** (New session) is on the session side.
+5. Under the input box are **发送语音** (Send voice) and **面部情绪识别** (Face emotion), plus a microphone widget. See the next section.
+6. Open the collapsed **自定义 Agent** (Custom Agent) panel. Four sliders set E/I, S/N, T/F, and J/P. Their labels are `外向(E)-内向(I)`, `感觉(S)-直觉(N)`, `思考(T)-情感(F)`, and `判断(J)-知觉(P)`. Type a name in **名字**, click **专属智能体生成** (Generate custom agent), then click the **专属智能体** button to add that agent to the chat.
 
-性格和分组：
+Personality groups:
 
-| 分组 | 按钮 |
+| Group | Buttons |
 | --- | --- |
-| Diplomats | INFJ、INFP、ENFJ、ENFP |
-| Analysts | INTJ、INTP、ENTJ、ENTP |
-| Sentinels | ISTJ、ISFJ、ESTJ、ESFJ |
-| Explorers | ISTP、ISFP、ESTP、ESFP |
-| 自定义 | 发送语音、专属智能体、面部情绪识别 |
+| Diplomats | INFJ, INFP, ENFJ, ENFP |
+| Analysts | INTJ, INTP, ENTJ, ENTP |
+| Sentinels | ISTJ, ISFJ, ESTJ, ESFJ |
+| Explorers | ISTP, ISFP, ESTP, ESFP |
+| 自定义 (Custom) | 发送语音 (Send voice), 专属智能体 (Custom agent), 面部情绪识别 (Face emotion) |
 
-按钮注册表在 `crazy_functional.py` 的 `get_crazy_functions()`。
+The button table is `get_crazy_functions()` in `crazy_functional.py`.
 
-## 语音、面部、文本情绪
+## Voice, face, and text emotion
 
-这三块不是打开网页的前提。权重和系统库不完整时，文字对话仍可单独使用。
+None of these three is required to open the page. Text chat still works when the weights or system libraries are incomplete.
 
-语音：
+Voice:
 
-- 界面麦克风在 `ENABLE_AUDIO = True` 时出现。
-- 识别走阿里云，需要 `ALIYUN_TOKEN` 和 `ALIYUN_APPKEY`。
-- 入口是 `crazy_functions/语音助手.py` 和 `crazy_functions/live_audio/aliyunASR.py`。
+- The microphone widget appears when `ENABLE_AUDIO = True`.
+- Recognition goes through Aliyun and needs `ALIYUN_TOKEN` and `ALIYUN_APPKEY`.
+- Entry points: `crazy_functions/语音助手.py` and `crazy_functions/live_audio/aliyunASR.py`.
 
-面部：
+Face:
 
-- 页面上有一个摄像头组件。源码注释写明视频流仍有问题，只作测试。
-- 模型是 mini-XCEPTION，权重在 `crazy_functions/emo_agent/face_agent/models/_mini_XCEPTION.102-0.64.hdf5`。
-- 代码使用 Keras / TensorFlow 风格的 `keras`，以及 `opencv-python`（`cv2`）、`imutils`。这些没有写进 `requirements.txt`。
+- The page includes a webcam widget. A source comment says the video stream still has problems and is only there for testing.
+- The model is mini-XCEPTION. Weights are at `crazy_functions/emo_agent/face_agent/models/_mini_XCEPTION.102-0.64.hdf5`.
+- The code expects Keras / TensorFlow-style `keras`, plus `opencv-python` (`cv2`) and `imutils`. Those packages are not in `requirements.txt`.
 
-语音情绪小模型：
+Speech-emotion models:
 
-- 权重在 `crazy_functions/emo_agent/audio_agent/checkpoints/`，含 OpenSMILE 与 librosa 两套 LSTM。
-- 特征提取会用到 `librosa`、`pandas`，以及同目录下的 `SMILExtract.exe`（Windows 上的 OpenSMILE 可执行文件）。
+- Weights are in `crazy_functions/emo_agent/audio_agent/checkpoints/`, with one LSTM for OpenSMILE and one for librosa.
+- Feature extraction uses `librosa` and `pandas`, and `SMILExtract.exe` in the same tree (an OpenSMILE executable for Windows).
 
-文本情绪：
+Text emotion:
 
-- 代码在 `crazy_functions/emo_agent/txt_agent/`，依赖 PyTorch 和 fairseq。
-- 大权重不在仓库里。下载说明在该目录的 `README.md`（夸克网盘链接）。
+- Code is in `crazy_functions/emo_agent/txt_agent/` and depends on PyTorch and fairseq.
+- The large weights are not in this repository. Download notes, including Quark Netdisk links, are in that directory's `README.md`. Quark is a Chinese file host, so the links may require a Quark account.
 
-可选包可以按你实际要点的功能再装，例如：
+| File | Link |
+| --- | --- |
+| Text-emotion `best_model.pth` | https://pan.quark.cn/s/30598ca731be |
+| Pretrained RoBERTa `checkpoint_best.pt` | https://pan.quark.cn/s/8312fd012876 |
+| Pretrained COMET `atomic_pretrained_model.pickle` and related files | https://pan.quark.cn/s/c1199a6656b5 |
+
+Install optional packages only for the feature you actually click, for example:
 
 ```powershell
 python -m pip install opencv-python imutils librosa pandas torch
 ```
 
-TensorFlow/Keras 与 fairseq 的版本和 2024 年的权重绑定得很紧，这里不给出未验证的版本号。
+TensorFlow/Keras and fairseq are tied tightly to the 2024 weights. This guide does not invent version pins that have not been verified.
 
-## 目录
+## Layout
 
 ```text
-main.py                 启动 Gradio，打印本地地址
-config.py               端口、模型列表、密钥和网关（只读环境变量）
-core_functional.py      基础功能按钮
-crazy_functional.py     16 个性格智能体和语音/面部/专属智能体的按钮表
-toolbox.py              配置读取、界面刷新、上传文件
-request_llms/           普通对话请求。bridge_all.py 做地址改写，bridge_chatgpt.py 发请求
+main.py                 Starts Gradio and prints the local URL
+config.py               Port, model list, keys, and gateway (environment variables only)
+core_functional.py      Basic function buttons
+crazy_functional.py     Button table for the 16 personalities plus voice, face, and custom agent
+toolbox.py              Config loading, UI refresh, file upload
+request_llms/           Normal chat requests. bridge_all.py rewrites the URL; bridge_chatgpt.py sends the request
 crazy_functions/
-  personality_agents/   每个 MBTI 一个文件，人设 JSON 在 agents_profiles.json
-  self_agent.py         专属智能体
-  auto_gen.py           对话中的情绪识别助理配置
-  语音助手.py            语音按钮
-  emo_agent/            语音、面部、文本三套本地情绪模型
-  live_audio/           麦克风缓冲和阿里云识别
-themes/                 界面主题和前端脚本
-shared_utils/           Markdown、上传、配置加载
-docs/logo.png           网页图标
+  personality_agents/   One file per MBTI type. Personas are in agents_profiles.json
+  self_agent.py         Custom agent
+  auto_gen.py           Emotion-recognition assistant used during chat
+  语音助手.py            Voice button
+  emo_agent/            Local speech, face, and text emotion models
+  live_audio/           Microphone buffer and Aliyun recognition
+themes/                 UI themes and front-end scripts
+shared_utils/           Markdown, uploads, config loading
+docs/logo.png           Page icon
 ```
 
-运行后会生成、且默认不提交的目录：
+Directories created at runtime and ignored by git:
 
-- `gpt_log/`：对话日志
-- `private_upload/`：上传文件
-- `flagged/`：Gradio 标记记录
-- `.cache/`、`__pycache__/`、`.idea/`
+- `gpt_log/`: chat logs
+- `private_upload/`: uploaded files
+- `flagged/`: Gradio flag records
+- `.cache/`, `__pycache__/`, `.idea/`
 
-## 常见问题
+## Troubleshooting
 
-启动就报 `ModuleNotFoundError`：看缺的模块名，用当前虚拟环境的 `python -m pip install` 安装。主路径需要的包都在 `requirements.txt`。
+`ModuleNotFoundError` at startup: install the missing module with `python -m pip install` inside the active virtual environment. Packages for the text-chat path are already in `requirements.txt`.
 
-网页能开，一点智能体就失败：先确认当前这个终端里 `OPENAI_API_KEY` 非空，再确认 `OPENAI_BASE_URL` 指向一个还活着的兼容网关，并且该网关有你在 `config_list` 里写的模型名。
+The page opens, but an agent click fails: confirm `OPENAI_API_KEY` is non-empty in this terminal, then confirm `OPENAI_BASE_URL` points at a live compatible gateway that serves the model name in that file's `config_list`.
 
-浏览器没弹出：用终端打印的 `http://localhost:端口`。端口每次可能不同。
+The browser does not open: use the `http://localhost:<port>` line printed in the terminal. The port can change every launch.
 
-请求一直超时：看本机是否必须走代理。超时和重试在 `config.py` 的 `TIMEOUT_SECONDS`（30）和 `MAX_RETRY`（2）。
+Requests time out: check whether this machine must use a proxy. Timeout and retry live in `config.py` as `TIMEOUT_SECONDS` (30) and `MAX_RETRY` (2).
 
-语音没结果：文字对话不依赖语音。检查阿里云两项环境变量，以及麦克风权限。
+Voice returns nothing: text chat does not depend on voice. Check the two Aliyun environment variables and the microphone permission.
 
-## 不要提交的内容
+## Do not commit
 
-`.gitignore` 已排除 `.env`、`config_private.py`、`OAI_CONFIG_LIST`、日志和上传目录。提交前再搜一遍源码，确认没有 `sk-` 开头的密钥。
+`.gitignore` already excludes `.env`, `config_private.py`, `OAI_CONFIG_LIST`, logs, and the upload directory. Before a commit, search the source again and confirm there is no key that starts with `sk-`.
